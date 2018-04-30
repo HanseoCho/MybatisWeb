@@ -4,4 +4,14 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>DBTest</servlet-name>
+  	<display-name>DBTest</display-name>
+  	<description></description>
+  	<servlet-class>kr.co.gdu.DBTest</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>DBTest</servlet-name>
+  	<url-pattern>/DBTest</url-pattern>
+  </servlet-mapping>
 </web-app>
