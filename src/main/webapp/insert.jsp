@@ -11,5 +11,11 @@
 	String userNo = request.getParameter("userNo");
 	%>
 	<%=userNo%>
+	<form action="BoardInsert">
+		<input type="text" name="title" placeholder="제목을 작성하세요.">
+		<input type="text" name="content" placeholder="내용을 작성하세요.">
+		<input type="hidden" name="regUser" value="<%=userNo%>">
+		<input type="submit" value="작성">
+	</form>
 </body>
 </html>

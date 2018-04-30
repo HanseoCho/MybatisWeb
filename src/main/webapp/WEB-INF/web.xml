@@ -16,6 +16,12 @@
   	<description></description>
   	<servlet-class>kr.go.gdu.UserList</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>BoardInsert</servlet-name>
+  	<display-name>BoardInsert</display-name>
+  	<description></description>
+  	<servlet-class>kr.co.gdu.BoardInsert</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>DBTest</servlet-name>
   	<url-pattern>/DBTest</url-pattern>
@@ -23,5 +29,9 @@
   <servlet-mapping>
   	<servlet-name>UserList</servlet-name>
   	<url-pattern>/UserList</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>BoardInsert</servlet-name>
+  	<url-pattern>/BoardInsert</url-pattern>
   </servlet-mapping>
 </web-app>

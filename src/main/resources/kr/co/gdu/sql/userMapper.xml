@@ -6,4 +6,7 @@
   <select id="selectUser" resultType="HashMap">
     select * from user
   </select>
+  <insert id="insertBoard" parameterType="HashMap">
+   insert into board (title, content, regUser) values (#{title},#{content},#{regUser})
+  </insert>
 </mapper>

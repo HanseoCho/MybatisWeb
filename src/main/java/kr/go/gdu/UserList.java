@@ -22,8 +22,6 @@ public class UserList extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		DBCon con = new DBCon();
 		SqlSessionFactory sqlSessionFactory = con.getConn();
-		System.out.println(sqlSessionFactory);
-		// JDBC 연결되어 있는 것중에 하나의 연결 통로를 생성
 		SqlSession session = sqlSessionFactory.openSession(true);
 		/*
 		 session.selectOne(""); -> 하나 행 가져오기
@@ -33,11 +31,11 @@ public class UserList extends HttpServlet {
 		 session.delete(""); -> 데이터 삭제		 
 		 */
 		List<HashMap<String, Object>> list = session.selectList("user.selectUser");
-		/*for(int i=0;i<list.size();i++) {
+		for(int i=0;i<list.size();i++) {
 			System.out.println(list.get(i));
-		}*/
+		}
 		request.setAttribute("list", list);
-		RequestDispatcher dis = request.getRequestDispatcher("userList.Jsp");
+		RequestDispatcher dis = request.getRequestDispatcher("userList.jsp");
 		dis.forward(request, response);
 		System.out.println("End");
 	}
