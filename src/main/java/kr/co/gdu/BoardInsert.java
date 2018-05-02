@@ -2,7 +2,9 @@ package kr.co.gdu;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -33,6 +35,16 @@ public class BoardInsert extends HttpServlet {
 		SqlSession session = sqlSessionFactory.openSession(true);
 		int cnt = session.insert("user.insertBoard",map);
 		System.out.println(cnt);
+		
+		if(cnt == 1) {
+			List<HashMap<String, Object>> list = session.selectList("user.selectBoard",map);  //맵으로보내주면 userMapper에서 키값으로 찾아간다 #{regUser}에서 매칭.
+			request.setAttribute("list", list);
+			RequestDispatcher dis = request.getRequestDispatcher("boardList.jsp");
+			dis.forward(request, response);
+		}
+		else {
+			
+		}
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("post");

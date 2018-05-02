@@ -4,9 +4,15 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="user">
   <select id="selectUser" resultType="HashMap">
-    select * from user
+    select * from test.user
   </select>
   <insert id="insertBoard" parameterType="HashMap">
-   insert into board (title, content, regUser) values (#{title},#{content},#{regUser})
+   insert into test.board (title, content, regUser) values (#{title},#{content},#{regUser})
   </insert>
+  <select id="selectBoard" parameterType="HashMap" resultType="HashMap">
+   select * from test.board where regUser = #{regUser}
+  </select>
+    <select id="selectBoardOne" parameterType="HashMap" resultType="HashMap">
+   select * from test.board where regUser = #{regUser} and boardNo = #{boardNo}
+  </select>
 </mapper>
